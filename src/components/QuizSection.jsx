@@ -1,5 +1,13 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 
+// ---------- HELPER PARA RUTAS DE IMÁGENES ----------
+const getImageUrl = (path) => {
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  const base = import.meta.env.BASE_URL || '/';
+  return `${base}${cleanPath}`;
+};
+
+// ---------- HOOK DE AUDIO ----------
 const useAudioFeedback = () => {
   const audioCtxRef = useRef(null);
 
@@ -37,6 +45,7 @@ const useAudioFeedback = () => {
   return { playClick, triggerHaptic };
 };
 
+// ---------- PREGUNTAS DEL QUIZ ----------
 const QUIZ_QUESTIONS = [
   {
     id: 'preocupacion',
@@ -87,13 +96,14 @@ const QUIZ_QUESTIONS = [
   },
 ];
 
+// ---------- RECOMENDACIONES (con rutas corregidas) ----------
 const getRecommendation = (answers) => {
   if (answers.preocupacion === 'vello') {
     return {
       title: 'Depilación Láser',
       description: 'Ideal para eliminar el vello no deseado de forma definitiva. Ofrecemos sesiones personalizadas para todo el cuerpo.',
       badge: 'Recomendado para ti',
-      image: '/fotos/laser.jpg',
+      image: getImageUrl('fotos/laser.jpg'),
     };
   }
 
@@ -103,14 +113,14 @@ const getRecommendation = (answers) => {
         title: 'Hollywood Peel (Láser de Carbón)',
         description: 'Efecto "filtro de Instagram" al instante. Ideal para unificar el tono y devolver luminosidad sin tiempo de recuperación.',
         badge: 'Efecto Inmediato',
-        image: '/fotos/hollywood.jpg',
+        image: getImageUrl('fotos/hollywood.jpg'),
       };
     } else {
       return {
         title: 'Facial Despigmentante',
         description: 'Aclara y unifica el tono de la piel, borrando manchas solares y marcas de acné con activos de alta gama.',
         badge: 'Tono Homogéneo',
-        image: '/fotos/despig.jpg',
+        image: getImageUrl('fotos/despig.jpg'),
       };
     }
   }
@@ -121,14 +131,14 @@ const getRecommendation = (answers) => {
         title: 'Facial Hidratante',
         description: 'Hidratación intensa con ácido hialurónico para rellenar líneas finas y devolver elasticidad, ideal para pieles sensibles.',
         badge: 'Nutrición Intensa',
-        image: '/fotos/hidrata.jpg',
+        image: getImageUrl('fotos/hidrata.jpg'),
       };
     } else {
       return {
         title: 'Dermapen (Microneedling)',
         description: 'Regeneración profunda de colágeno y elastina. Atenúa arrugas, cicatrices y flacidez con resultados progresivos.',
         badge: 'Resultados Progresivos',
-        image: '/fotos/dermapen.webp',
+        image: getImageUrl('fotos/dermapen.webp'),
       };
     }
   }
@@ -139,14 +149,14 @@ const getRecommendation = (answers) => {
         title: 'Fototerapia (Luz LED)',
         description: 'Tratamiento sin dolor que calma la inflamación, elimina bacterias y acelera la curación de brotes activos.',
         badge: 'Cero Dolor',
-        image: '/fotos/fototer.jpg',
+        image: getImageUrl('fotos/fototer.jpg'),
       };
     } else {
       return {
         title: 'Facial Control Acné',
         description: 'Tratamiento especializado con ácido salicílico y té verde para desinfectar, regular la grasa y prevenir brotes.',
         badge: 'Control & Calma',
-        image: '/fotos/acne.webp',
+        image: getImageUrl('fotos/acne.webp'),
       };
     }
   }
@@ -157,14 +167,14 @@ const getRecommendation = (answers) => {
         title: 'Alta Frecuencia',
         description: 'Rápido y efectivo: oxigena, purifica y reactiva la circulación para un brillo saludable en menos de 30 min.',
         badge: 'Piel Purificada',
-        image: '/fotos/frecu.jpg',
+        image: getImageUrl('fotos/frecu.jpg'),
       };
     } else {
       return {
         title: 'Hidrafacial',
         description: 'Limpieza Vortex, exfoliación suave e hidratación profunda en un solo tratamiento de 45 minutos.',
         badge: 'Limpieza Vortex',
-        image: 'Hydrafacial.jpg',
+        image: getImageUrl('Hydrafacial.jpg'),   // Sin carpeta "fotos/"
       };
     }
   }
@@ -173,10 +183,11 @@ const getRecommendation = (answers) => {
     title: 'Consulta personalizada',
     description: 'Te recomendamos agendar una evaluación con nuestra experta para encontrar el tratamiento perfecto para ti.',
     badge: 'Recomendado',
-    image: '/fotos/persona.jpg',
+    image: getImageUrl('fotos/persona.jpg'),
   };
 };
 
+// ---------- COMPONENTE PRINCIPAL ----------
 const QuizSection = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({});

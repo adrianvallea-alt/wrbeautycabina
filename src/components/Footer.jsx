@@ -55,16 +55,12 @@ const Footer = () => {
         }}
       >
         {/* Logo añadido */}
-        <img
-          src="/logobco.png"
-          alt="WR Beauty Cabina"
-          style={{
-            height: '50px',
-            width: 'auto',
-            objectFit: 'contain',
-            filter: 'drop-shadow(0 0 12px rgba(255, 206, 246, 0.6))',
-          }}
-        />
+        <img 
+  src={`${import.meta.env.BASE_URL || '/'}logobco.png`} 
+  alt="WR Beauty Cabina" 
+  className="logobco-img"
+  style={{ height: '60px', width: 'auto' }}   // ← ajusta este valor
+/>
 
         <h3
           style={{

@@ -114,10 +114,20 @@ const Header = () => {
             if (hero) hero.scrollIntoView({ behavior: 'smooth' })
           }}
         >
-          <img src="/logo.png" alt="WR Beauty Cabina" className="header-logo" />
+         <img 
+  src={`${import.meta.env.BASE_URL || '/'}logo.png`} 
+  alt="WR Beauty Cabina" 
+  className="logo-img"
+  style={{ height: '60px', width: 'auto' }}   // ← ajusta este valor
+/>
         </a>
 
-        <p className="header-tagline">WR BEAUTY CABINA</p>
+        <p 
+  className="header-tagline"
+  style={{ fontSize: '0.9rem' }}   // ← ajusta este valor
+>
+  -WR BEAUTY CABINA-
+</p>
 
         <button
           ref={menuButtonRef}

@@ -73,11 +73,12 @@ const AboutSection = () => {
           </p>
         </div>
 
-        <img
-          src="/logo.png"
-          alt="WR Beauty Cabina"
-          className="about-luxe-logo"
-        />
+        <img 
+  src={`${import.meta.env.BASE_URL || '/'}logo.png`} 
+  alt="WR Beauty Cabina" 
+  className="logo-img"
+  style={{ height: '300px', width: 'auto' }}   // ← ajusta este valor
+/>
 
         <div className="about-luxe-divider" />
 

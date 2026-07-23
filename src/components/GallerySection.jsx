@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 
+// Después
+const base = import.meta.env.BASE_URL || '/'
 const images = [
-  '/fotos/images.jpg',
-  '/fotos/imagess.jpg',
+  `${base}fotos/images.jpg`,
+  `${base}fotos/imagess.jpg`,
 ]
-
 const GallerySection = () => {
   const sectionRef = useRef(null)
   const canvasRef = useRef(null)

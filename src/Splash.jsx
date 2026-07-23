@@ -159,7 +159,7 @@ const Splash = ({ onEnter }) => {
       {/* Tarjeta central */}
       <div className="splash-card">
         <div className="logo">
-          <img src="/logo.png" alt="WR Beauty Cabina" className="logo-img" />
+          <img src={`${import.meta.env.BASE_URL || '/'}logo.png`} alt="WR Beauty Cabina" className="logo-img" />
         </div>
 
         <h1 className="typewriter">
