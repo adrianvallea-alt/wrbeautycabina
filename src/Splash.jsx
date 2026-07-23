@@ -111,7 +111,7 @@ const Splash = ({ onEnter }) => {
     // Reproducción de música Lo-Fi (si no está muteado)
     if (!isAudioMuted && !audioRef.current) {
       try {
-        const bgAudio = new Audio('https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3')
+        const bgAudio = new Audio(`${import.meta.env.BASE_URL || '/'}audio/musica.mp3`)
         bgAudio.loop = true
         bgAudio.volume = 0.35
         bgAudio.play().catch(() => {})
