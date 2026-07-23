@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/wrbeautycabina/',
+  base: '/wrbeautycabina/', // ⚠️ cámbialo por el nombre exacto de tu repositorio
 })

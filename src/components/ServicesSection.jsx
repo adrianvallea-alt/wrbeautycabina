@@ -1,6 +1,11 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 
+const getImagePath = (path) => {
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${import.meta.env.BASE_URL}${cleanPath}`;
+};
+
 export const SERVICES_DATA = [
   {
     id: 'hollywood-peel',
@@ -14,7 +19,7 @@ export const SERVICES_DATA = [
       'Sientes la piel opaca, cansada o con textura irregular.',
       'Buscas combatir poros abiertos y exceso de brillo facial.'
     ],
-    image: '/fotos/hollywood.jpg'
+    image: getImagePath('fotos/hollywood.jpg')
   },
   {
     id: 'dermapen',
@@ -28,7 +33,7 @@ export const SERVICES_DATA = [
       'Buscas prevenir y corregir arrugas finas o flacidez inicial.',
       'Tienes poros dilatados o textura "de cáscara de naranja".'
     ],
-    image: '/fotos/dermapen.webp'
+    image: getImagePath('fotos/dermapen.webp')
   },
   {
     id: 'fototerapia',
@@ -42,7 +47,7 @@ export const SERVICES_DATA = [
       'Tienes piel sensible, con rosácea o fácilmente irritable.',
       'Buscas un tratamiento 100% relajante, no invasivo y sin agujas.'
     ],
-    image: '/fotos/fototer.jpg'
+    image: getImagePath('fotos/fototer.jpg')
   },
   {
     id: 'remocion-tatuajes',
@@ -56,7 +61,7 @@ export const SERVICES_DATA = [
       'Buscas aclarar un tatuaje previo para hacer un cover-up impecable.',
       'Quieres corregir un procedimiento fallido de microblading o delineado.'
     ],
-    image: '/fotos/tattoo.jpg'
+    image: getImagePath('fotos/tattoo.jpg')
   },
   {
     id: 'peeling-quimico',
@@ -70,7 +75,7 @@ export const SERVICES_DATA = [
       'Tu piel luce envejecida, con daño solar o tono desparejo.',
       'Tienes tendencia al acné o puntos negros rebeldes.'
     ],
-    image: '/fotos/quimico.jpg'
+    image: getImagePath('fotos/quimico.jpg')
   },
   {
     id: 'laser-pigmentaciones',
@@ -84,7 +89,7 @@ export const SERVICES_DATA = [
       'Buscas eliminar hiper pigmentaciones específicas de forma rápida y efectiva.',
       'Quieres unificar el tono facial sin depender del maquillaje diario.'
     ],
-    image: '/fotos/pigment.jpg'
+    image: getImagePath('fotos/pigment.jpg')
   },
   {
     id: 'alta-frecuencia',
@@ -98,7 +103,7 @@ export const SERVICES_DATA = [
       'Tienes brotes puntuales de acné o piel propensa a infecciones.',
       'Sufres de piel congestionada, inflamada o con falta de vitalidad.'
     ],
-    image: '/fotos/frecu.jpg'
+    image: getImagePath('fotos/frecu.jpg')
   },
   {
     id: 'hidrafacial',
@@ -112,7 +117,7 @@ export const SERVICES_DATA = [
       'Tienes piel deshidratada, opaca o con poros obstruidos.',
       'Quieres un cuidado preventivo global apto para todo tipo de piel.'
     ],
-    image: '/fotos/Hydrafacial.jpg'
+    image: getImagePath('fotos/Hydrafacial.jpg')
   }
 ];
 
@@ -129,7 +134,7 @@ export const FACIALS_DATA = [
       'Notas acumulación de puntos negros en zona T (nariz, barbilla, frente).',
       'Buscas el mantenimiento básico esencial para cualquier rutina de cuidado facial.'
     ],
-    image: '/fotos/profunda.webp'
+    image: getImagePath('fotos/profunda.webp')
   },
   {
     id: 'limpieza-dermaplaning',
@@ -143,7 +148,7 @@ export const FACIALS_DATA = [
       'Buscas un lienzo impecable para que el maquillaje se adhiera de forma profesional.',
       'Deseas una exfoliación física superior sin irritar la piel.'
     ],
-    image: '/fotos/fderma.jpg'
+    image: getImagePath('fotos/fderma.jpg')
   },
   {
     id: 'control-acne',
@@ -157,7 +162,7 @@ export const FACIALS_DATA = [
       'Sufres de exceso de brillo y poros tapados a lo largo del día.',
       'Quieres frenar los brotes sin recurrir a productos agresivos que resequen tu rostro.'
     ],
-    image: '/fotos/acne.webp'
+    image: getImagePath('fotos/acne.webp')
   },
   {
     id: 'despigmentante',
@@ -171,7 +176,7 @@ export const FACIALS_DATA = [
       'Te quedaron marcas oscuras o pigmentadas tras brotes de acné pasados.',
       'Sientes que el tono de tu rostro se ve desigual o deslucido.'
     ],
-    image: '/fotos/despig.jpg'
+    image: getImagePath('fotos/despig.jpg')
   },
   {
     id: 'hidratante',
@@ -185,7 +190,7 @@ export const FACIALS_DATA = [
       'Estuviste expuesta al sol, al frío extremo o a viajes recientes.',
       'Buscas prevenir el envejecimiento prematuro manteniendo la hidratación óptima.'
     ],
-    image: '/fotos/hidrata.jpg'
+    image: getImagePath('fotos/hidrata.jpg')
   },
   {
     id: 'desintoxicacion',
@@ -199,7 +204,7 @@ export const FACIALS_DATA = [
       'Pasas muchas horas frente a computadoras o teléfonos móviles.',
       'Notas tu rostro asfixiado, opaco y falto de vitalidad.'
     ],
-    image: '/fotos/detox.jpg'
+    image: getImagePath('fotos/detox.jpg')
   },
   {
     id: 'drenaje-linfatico',
@@ -213,7 +218,7 @@ export const FACIALS_DATA = [
       'Te realizaste algún procedimiento estético reciente y buscas reducir la inflamación.',
       'Quieres definir tus facciones y relajar la tensión acumulada.'
     ],
-    image: '/fotos/linfati.jpg'
+    image: getImagePath('fotos/linfati.jpg')
   },
   {
     id: 'relajante',
@@ -227,7 +232,7 @@ export const FACIALS_DATA = [
       'Sientes tensión acumulada en la mandíbula o el cuello.',
       'Quieres consentir tu piel sin someterla a extracciones o ácidos intensos.'
     ],
-    image: '/fotos/relax.jpg'
+    image: getImagePath('fotos/relax.jpg')
   }
 ];
 
