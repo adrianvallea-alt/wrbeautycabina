@@ -1,0 +1,109 @@
+/* Configuración Base Editorial */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, #root {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #000000; /* Fondo negro absoluto */
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Contenedor Principal */
+.splash-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  z-index: 10;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* Logo con efecto sutil Cartier/Dior */
+.logo {
+  margin-bottom: 1rem;
+}
+
+.logo-img {
+  max-width: 160px;
+  height: auto;
+  filter: brightness(1) drop-shadow(0 0 20px rgba(255, 255, 255, 0.15));
+}
+
+/* Texto Máquina de Escribir / Titular Estilo Vogue */
+.typewriter {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 3.2rem); /* Tamaño adaptativo elegante */
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 3px;
+  color: #f7f7f7;
+  min-height: 4rem;
+  line-height: 1.3;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Cursor sutil estilo cinematográfico */
+.cursor {
+  display: inline-block;
+  margin-left: 4px;
+  font-weight: 300;
+  color: #ffffff;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Botón Negro Editorial de Lujo */
+.cta-button {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: #ffffff;
+  background-color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 1.1rem 3rem;
+  border-radius: 0px; /* Bordes rectos tipo alta costura */
+  cursor: pointer;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+.cta-button:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Capa cinematográfica de viñeta (oscuridad en los bordes) */
+.vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle, transparent 40%, rgba(0, 0, 0, 0.8) 100%);
+  z-index: 2;
+}
